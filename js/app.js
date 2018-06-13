@@ -1,40 +1,26 @@
-/*
- * Create a list that holds all of your cards
- */
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
 
 // Comment out BELOW to use fixed board -------------------------------------------------
 // Create array of classNames from HTML
-// const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fa fa-bicycle"]; 
+const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fa fa-bicycle"]; 
 
-// // function that will return a double sized version of this array. This way to change
-// // the icons in the array, I only need to add 8 items to array above instead of 16.
-// const manualList = doubleArray(manualListTemp);
-// console.log(manualList);
+// function that will return a double sized version of this array. This way to change
+// the icons in the array, I only need to add 8 items to array above instead of 16.
+const manualList = doubleArray(manualListTemp);
+console.log(manualList);
 
 
-// // Get shuffled array of Cards
-// const shuffledArray = shuffle(manualList);
-// console.log(shuffledArray);
+// Get shuffled array of Cards
+let shuffledArray = shuffle(manualList);
+console.log(shuffledArray);
 
-// // Add shuffled classes to the <i> elements
-// addShuffledClasses();
+// Add shuffled classes to the <i> elements
+addShuffledClasses();
 
 // Comment out ABOVE to use fixed board ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // Temporary simple solve deck for testing. Comment OUT to not use.
-const shuffledArray = ["fa fa-diamond","fa fa-diamond", "fa fa-paper-plane-o","fa fa-paper-plane-o", "fa fa-anchor","fa fa-anchor", "fa fa-bolt","fa fa-bolt","fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf","fa fa-bomb","fa fa-bomb","fa fa-bicycle","fa fa-bicycle"];;
-addShuffledClasses();
-
-const shuffledArrayNdx = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+// let shuffledArray = ["fa fa-diamond","fa fa-diamond", "fa fa-paper-plane-o","fa fa-paper-plane-o", "fa fa-anchor","fa fa-anchor", "fa fa-bolt","fa fa-bolt","fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf","fa fa-bomb","fa fa-bomb","fa fa-bicycle","fa fa-bicycle"];;
+// addShuffledClasses();
 
 //Initialize Stop Watch Values
 let time = 0;           //time in mSec
@@ -60,6 +46,12 @@ let clickedCards = [];
 
 // Create move counter
 let moveCount = 0;
+
+// Add Reset Functionality
+const myReset = document.querySelector('.restart');
+myReset.addEventListener('click', ()=>  {
+  resetBoard();
+});
 
 // |------------------------------------------------------------------------------------|
 // |Functions BELOW---------------------------------------------------------------------|
@@ -261,7 +253,50 @@ function resetTimer() {
   time = 0;
 }
 
+// Function call to reset the game-------------------------------------------------------
+//---------------------------------------------------------------------------------------
+function resetBoard() {
 
+  // Reshuffle Array
+  shuffledArray = shuffle(manualList);
+  console.log(shuffledArray);
+  
+
+  // Add shuffled classes to the <i> elements
+  addShuffledClasses();
+
+  //Re-Initialize Stop Watch Values and update HTML
+  stopTimer();
+  resetTimer();
+  update();
+  document.querySelector('.myTimer').textContent = `0 : 00 : 00`;
+  time = 0;           //time in mSec
+  interval;           //
+  offset;             //captures date.Now to capture start time
+  isOn = false;       //captures state of watch
+  firstMove = false;  //Will only be triggered once per game
+
+  // Re-Initialize winning move count
+  matchCount = 0;
+
+  // Re-Initialize Score
+  myScore = 10;
+
+  // Reset clicked cards array
+  clickedCards = [];
+
+  // Reset Move Counter and update HTML
+  moveCount = 0;
+  const movesOnPage = document.querySelector(".moves");
+  movesOnPage.textContent = `${moveCount} Move`;
+
+  // Reset all classes on cards(flip them over)
+  const deckOfCards =document.querySelector('.deck');
+
+  for (let i = 0; i < 16; i++) {
+    deckOfCards.children[i].className = 'card';
+  }
+}
 
 
 /*
