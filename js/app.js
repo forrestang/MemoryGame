@@ -34,6 +34,8 @@
 const shuffledArray = ["fa fa-diamond","fa fa-diamond", "fa fa-paper-plane-o","fa fa-paper-plane-o", "fa fa-anchor","fa fa-anchor", "fa fa-bolt","fa fa-bolt","fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf","fa fa-bomb","fa fa-bomb","fa fa-bicycle","fa fa-bicycle"];;
 addShuffledClasses();
 
+const shuffledArrayNdx = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+
 //Initialize Stop Watch Values
 let time = 0;           //time in mSec
 let interval;           //
@@ -89,15 +91,18 @@ function applyListener(event) {
     toggleCardClass(myClickedCard);
     if (!firstMove) {   // Timer will only be started one time
       startTimer();     // start the timer on first click on board
-      firstMove = true;     
+      firstMove = true; // This will never be triggered again    
     }
   }
+  // console.log(matchCount);
+  
 }
 
 // Toggle the show/Open classes which turn card blue and show symbol---------------------
 //---------------------------------------------------------------------------------------
 function toggleCardClass(myClickedCard) {
-  if(!myClickedCard.classList.contains("match")) { //If already matched, don't allow user to interact with it
+  // Condition: If already matched or flipped don't allow user to interact with it
+  if(!myClickedCard.classList.contains("match") && !myClickedCard.classList.contains("show")) { 
     event.target.classList.toggle("show");
     event.target.classList.toggle("open"); 
     addCardsOpened(myClickedCard);  //Add cards to array  
@@ -109,7 +114,8 @@ function toggleCardClass(myClickedCard) {
 function addCardsOpened(myClickedCard) {
   if (myClickedCard.classList.contains("open") ) { // Add card to array ONLY if card recently toggled/flipped over
     clickedCards.push(myClickedCard);
-
+    // console.log(clickedCards);
+    
     if(clickedCards.length === 2)  { // if we have two cards, compare theese two cards
       compareCards();
     }    
@@ -205,7 +211,7 @@ function keepingScore() {
 function update() { //add time passed to previous time
   time += delta();
   let formattedTime = timeFormatter(time);
-  console.log(formattedTime); 
+  // console.log(formattedTime); 
   document.querySelector('.myTimer').textContent = formattedTime;
 }
 
