@@ -81,16 +81,15 @@ h1 {
     font-size: 33px;
 }
 
-/*
- * Styles for the Score Panel
- */
-
+/* ---------------------CSS FOR Score Panel, used Grid Layout--------------------*/
 .score-panel {
     text-align: left;
     /* width: 345px; */
     width: 660px; /* changed this so header panel spans across */
     margin-bottom: 10px;
     padding: 0 20px; /* changed this */
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 .score-panel .stars {
@@ -98,6 +97,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+
 }
 
 .score-panel .stars li {
@@ -107,15 +107,15 @@ h1 {
 
 /* added this for timer */
 .score-panel .timer {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .score-panel .restart {
-    float: right;
+    justify-self: end;
     cursor: pointer;
 }
 
-/* CSS FOR MODAL */
+/* -------------------------------CSS FOR MODAL -----------------------------------*/
 .swal2-modal  { /* setting height for overall modal */
   height: 100%;
 }

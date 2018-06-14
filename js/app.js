@@ -311,7 +311,7 @@ function resetBoard() {
   // Reset Move Counter and update HTML
   moveCount = 0;
   const movesOnPage = document.querySelector(".moves");
-  movesOnPage.textContent = `${moveCount} Move`;
+  movesOnPage.textContent = `${moveCount} Moves`;
 
   // Reset all classes on cards(flip them over)
   const deckOfCards =document.querySelector('.deck');
