@@ -335,7 +335,7 @@ function resetBoard() {
 //     let myModal = document.querySelector("#myModal");
 //   // close dialog using close()
 //     myModal.close();
-}
+// }
 
 /*
  * set up the event listener for a card. If a card is clicked:
