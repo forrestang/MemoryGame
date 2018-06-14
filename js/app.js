@@ -337,6 +337,16 @@ function resetBoard() {
 //     myModal.close();
 // }
 
+const modalBtn = document.querySelector('#btnAlert');
+modalBtn.addEventListener('click', () => {
+  swal({
+    type: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+    footer: '<a href>Why do I have this issue?</a>',
+  })
+});
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
