@@ -1,8 +1,9 @@
 
 // Comment out BELOW to use fixed board -------------------------------------------------
 // Create array of classNames from HTML
-// const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fa fa-bicycle"]; 
-const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fab fa-react"]; 
+
+// const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fab fa-react"]; 
+const manualListTemp = ["fab fa-react", "fab fa-vuejs", "fab fa-python", "fab fa-php","fab fa-node-js","fab fa-laravel","fab fa-r-project","fab fa-npm"]; 
 
 // function that will return a double sized version of this array. This way to change
 // the icons in the array, I only need to add 8 items to array above instead of 16.
