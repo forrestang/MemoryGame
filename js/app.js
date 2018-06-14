@@ -1,5 +1,3 @@
-
-// Comment out BELOW to use fixed board -------------------------------------------------
 // Create array of classNames from HTML
 const manualListTemp = ["fab fa-react", "fab fa-vuejs", "fab fa-python", "fab fa-php","fab fa-node-js","fab fa-laravel","fab fa-r-project","fab fa-npm"]; 
 
@@ -13,7 +11,7 @@ console.log(manualList);
 let shuffledArray = shuffle(manualList);
 console.log(shuffledArray);
 
-// ************Temporary simple solve deck for testing. Comment OUT to not use.***********
+// ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck use.***********
 shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
 
 // Add shuffled classes to the <i> elements
@@ -186,6 +184,7 @@ function isGameOver() {
   if(matchCount === 8) {
     console.log(`${matchCount} moves and Game is Over`);
     stopTimer();  //Stop timer on end game condition
+    displayModal();
   }
 }
 
@@ -278,7 +277,7 @@ function resetBoard() {
   shuffledArray = shuffle(manualList);
   console.log(shuffledArray);
 
-  // ************Temporary simple solve deck for testing. Comment OUT to not use.***********
+  // ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck use.***********
   shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
   
   // Add shuffled classes to the <i> elements
@@ -322,30 +321,32 @@ function resetBoard() {
   }
 }
 
-// Modal setup
-// function showModal() {
-//   // retrieve <dialog> element using id 
-//   let myModal = document.querySelector("#myModal");
-//   // show dialog using showModal
-//   myModal.showModal();
-// }
+// Modal Function------------------------------------------------------------------------
+// Using SweetAlerts2 for Modal----------------------------------------------------------
+function displayModal() {
+  const myText = `With ${moveCount} Moves and ${myScore-1} Stars.`;
 
-// function closeModal() {
-//   // retrieve <dialog> element using id   
-//     let myModal = document.querySelector("#myModal");
-//   // close dialog using close()
-//     myModal.close();
-// }
-
-const modalBtn = document.querySelector('#btnAlert');
-modalBtn.addEventListener('click', () => {
+  //Swal object to display modal info
   swal({
-    type: 'error',
-    title: 'Oops...',
-    text: 'Something went wrong!',
-    footer: '<a href>Why do I have this issue?</a>',
+    type: 'success',
+    title: 'Congratulations! You Won!',
+    text: myText,
+    backdrop: true,
+    width: '70%',
+    confirmButtonText: 'Play Again',
+    buttonsStyling: false,
+    showCloseButton: true,
   })
-});
+
+  // Add reset functionality to play Button
+  const playAgainBtn = document.querySelector('.swal2-confirm');
+  playAgainBtn.addEventListener('click', () => {
+    resetBoard();
+  });
+}
+
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:

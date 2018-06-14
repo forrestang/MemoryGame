@@ -116,3 +116,17 @@ h1 {
 }
 
 /* CSS FOR MODAL */
+.swal2-modal  { /* setting height for overall modal */
+  height: 100%;
+}
+
+.swal2-confirm  { /* Style for confirmation button */
+  background: #02ccba ;
+  padding:1em 2em;
+  color:#fff;
+  border:0;
+}
+
+.swal2-confirm:hover{
+  background:#18776f;
+}
