@@ -1,8 +1,6 @@
 
 // Comment out BELOW to use fixed board -------------------------------------------------
 // Create array of classNames from HTML
-
-// const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fab fa-react"]; 
 const manualListTemp = ["fab fa-react", "fab fa-vuejs", "fab fa-python", "fab fa-php","fab fa-node-js","fab fa-laravel","fab fa-r-project","fab fa-npm"]; 
 
 // function that will return a double sized version of this array. This way to change
@@ -15,14 +13,11 @@ console.log(manualList);
 let shuffledArray = shuffle(manualList);
 console.log(shuffledArray);
 
+// ************Temporary simple solve deck for testing. Comment OUT to not use.***********
+shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
+
 // Add shuffled classes to the <i> elements
 addShuffledClasses();
-
-// Comment out ABOVE to use fixed board ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-// Temporary simple solve deck for testing. Comment OUT to not use.
-// let shuffledArray = ["fa fa-diamond","fa fa-diamond", "fa fa-paper-plane-o","fa fa-paper-plane-o", "fa fa-anchor","fa fa-anchor", "fa fa-bolt","fa fa-bolt","fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf","fa fa-bomb","fa fa-bomb","fa fa-bicycle","fa fa-bicycle"];;
-// addShuffledClasses();
 
 //Initialize Stop Watch Values
 let time = 0;           //time in mSec
@@ -282,6 +277,9 @@ function resetBoard() {
   // Reshuffle Array
   shuffledArray = shuffle(manualList);
   console.log(shuffledArray);
+
+  // ************Temporary simple solve deck for testing. Comment OUT to not use.***********
+  shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
   
   // Add shuffled classes to the <i> elements
   addShuffledClasses();
@@ -324,6 +322,20 @@ function resetBoard() {
   }
 }
 
+// Modal setup
+// function showModal() {
+//   // retrieve <dialog> element using id 
+//   let myModal = document.querySelector("#myModal");
+//   // show dialog using showModal
+//   myModal.showModal();
+// }
+
+// function closeModal() {
+//   // retrieve <dialog> element using id   
+//     let myModal = document.querySelector("#myModal");
+//   // close dialog using close()
+//     myModal.close();
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
