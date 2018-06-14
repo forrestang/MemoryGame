@@ -94,7 +94,6 @@ function applyListener(event) {
     }
   }
   // console.log(matchCount);
-  
 }
 
 // Toggle the show/Open classes which turn card blue and show symbol---------------------
@@ -258,7 +257,7 @@ function timeFormatter(timeInMsecs) {
 
 function startTimer() {
   if(!isOn) {
-    interval = setInterval(update, 500);
+    interval = setInterval(update, 50);
     offset = Date.now();
     isOn = true;
   }
@@ -304,6 +303,11 @@ function resetBoard() {
   // Re-Initialize Score
   myScore = 10;
 
+  // Reset star icons in score panel
+  for (let i = 0; i < myScore-1; i++) {
+    myStars.children[i].children[0].className = 'fas fa-star';  
+  }
+  
   // Reset clicked cards array
   clickedCards = [];
 
