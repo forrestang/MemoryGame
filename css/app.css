@@ -84,6 +84,12 @@ h1 {
   font-size: 66px;
 }
 
+.deck .card.wrong { /* MATCH class, removes curser, shows symbol, applies color */
+  /* cursor: default; nullifies color */
+  background: #d43333;  /* color for matched cards */
+  font-size: 66px;
+}
+
 /* ---------------------CSS FOR Score Panel, used Grid Layout--------------------*/
 .score-panel {
   text-align: left;

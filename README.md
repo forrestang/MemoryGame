@@ -26,6 +26,10 @@ Background image, currently not in use
 Timer.  Most of this code was taken from an object oriented script at the youtube video below.  The majority of the structure is similar, but I modified it to just be functions.
   * https://www.youtube.com/watch?v=jRhB1IG7uAw&t=1526s
 
-Modal created using SweetAlerts2.  
+
+## Dependencies 
+Modal created using SweetAlerts2.  No CDN, in  folder 'node_modules'
   * https://sweetalert2.github.io/
   
+Used animate.css. No CDN, installed in CSS Folder
+  * https://daneden.github.io/animate.css/
