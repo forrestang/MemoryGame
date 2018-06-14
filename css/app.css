@@ -1,19 +1,19 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -23,45 +23,45 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 /* ---------------------CSS FOR Cards------------------------------------*/
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    /* background: linear-gradient(160deg, #f18306 0%, #384ab3 100%); */
-    padding: 32px;
-    border-radius: 7px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+  width: 660px;
+  min-height: 680px;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  /* background: linear-gradient(160deg, #f18306 0%, #384ab3 100%); */
+  padding: 32px;
+  border-radius: 7px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
 }
 
 .deck .card {   
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 5px;
-    cursor: pointer;  /* Add a pointer to the boxes */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  height: 125px;
+  width: 125px;
+  background: #2e3d49;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;  /* Add a pointer to the boxes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .card:hover{ /* Add Hover over empty cards */
@@ -69,53 +69,47 @@ h1 {
 }
 
 .deck .card.open {   /* OPEN class, turns cards from black to blue to show flipped, does not effect symbol */
-    transform: rotateY(0);
-    background: #02b3e4;  /* color for single flipped cards */
-    cursor: default; /* nullifies color */
+  transform: rotateY(0);
+  background: #02b3e4;  /* color for single flipped cards */
+  cursor: default; /* nullifies color */
 }
 
 .deck .card.show {  /* SHOW class, symbol on card face when flipped, for non-matched single cards */
-    font-size: 33px;
+  font-size: 66px;
 }
 
 .deck .card.match { /* MATCH class, removes curser, shows symbol, applies color */
-    cursor: default; /* nullifies color */
-    background: #02ccba;  /* color for matched cards */
-    font-size: 33px;
+  cursor: default; /* nullifies color */
+  background: #02ccba;  /* color for matched cards */
+  font-size: 66px;
 }
 
 /* ---------------------CSS FOR Score Panel, used Grid Layout--------------------*/
 .score-panel {
-    text-align: left;
-    /* width: 345px; */
-    width: 660px; /* changed this so header panel spans across */
-    margin-bottom: 10px;
-    padding: 0 20px; /* changed this */
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+  text-align: left;
+  /* width: 345px; */
+  width: 660px; /* changed this so header panel spans across */
+  margin-bottom: 10px;
+  padding: 0 20px; /* changed this */
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
-}
-
-/* added this for timer */
-.score-panel .timer {
-    /* display: inline-block; */
+  list-style: none;
+  display: inline-block;
 }
 
 .score-panel .restart {
-    justify-self: end;
-    cursor: pointer;
+  justify-self: end;
+  cursor: pointer;
 }
 
 /* -------------------------------CSS FOR MODAL -----------------------------------*/

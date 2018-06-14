@@ -18,3 +18,14 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Resources
+Background image, currently not in use
+  * http://www.background-hd.download/images-for-background-css/
+
+Timer.  Most of this code was taken from an object oriented script at the youtube video below.  The majority of the structure is similar, but I modified it to just be functions.
+  * https://www.youtube.com/watch?v=jRhB1IG7uAw&t=1526s
+
+Modal created using SweetAlerts2.  
+  * https://sweetalert2.github.io/
+  
