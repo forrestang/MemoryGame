@@ -1,7 +1,8 @@
 
 // Comment out BELOW to use fixed board -------------------------------------------------
 // Create array of classNames from HTML
-const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fa fa-bicycle"]; 
+// const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fa fa-bicycle"]; 
+const manualListTemp = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt","fa fa-cube","fa fa-leaf","fa fa-bomb","fab fa-react"]; 
 
 // function that will return a double sized version of this array. This way to change
 // the icons in the array, I only need to add 8 items to array above instead of 16.
@@ -35,6 +36,11 @@ let matchCount = 0;
 // Scoring system, mostly for stars and removal
 let myScore = 10;
 
+// Setup for stars in the score panel
+const myStars = document.querySelector('.stars');
+// console.log(myStars);
+
+
 // Add Event Listeners to cards via event delegation and 
 const myDeck =document.querySelector('.deck');  //
 
@@ -49,7 +55,7 @@ let moveCount = 0;
 
 // Add Reset Functionality
 const myReset = document.querySelector('.restart');
-myReset.addEventListener('click', ()=>  {
+myReset.addEventListener('click', function()  {
   resetBoard();
 });
 
@@ -149,7 +155,8 @@ function cardsMatchFalse() {
   clickedCards[1].classList.remove("open"); 
   clickedCards = []; // Clear array as we only need to work with two cards at a time
   incrementMoveCount(); //Add a move each time cards are NOT matched
-  keepingScore();
+  keepingScore();       //function to reduce score on incorrect guess
+  removeStar();         //function to remove stars from score panel
 }
 
 // Increment move Counter----------------------------------------------------------------
@@ -162,6 +169,19 @@ function incrementMoveCount() {
   } else {
     movesOnPage.textContent = `${moveCount} Moves`;
   }
+}
+
+// Modify the stars on the page ---------------------------------------------------------
+//---------------------------------------------------------------------------------------
+function removeStar() {
+  // myStars.children[myScore].children[0].className = "fas fa-star";
+  if (myScore > 0) {
+    // console.log(myScore);
+    // console.log(myStars.children[myScore-1].children[0].className);
+    // console.log(myStars.children[5]);
+    myStars.children[myScore-1].children[0].className = 'far fa-star';    
+  }
+
 }
 
 // Check if game is won or not, returns bool---------------------------------------------
@@ -194,8 +214,10 @@ function addShuffledClasses() {
 
 // Function to reduce score on an incorrrect guess---------------------------------------
 //---------------------------------------------------------------------------------------
-function keepingScore() {
+function keepingScore() { //Make sure lowest score is only as low as 0
+  if(myScore > 0) {
     myScore--;
+  }
 }
 
 // Functions for stop watch--------------------------------------------------------------
@@ -261,7 +283,6 @@ function resetBoard() {
   shuffledArray = shuffle(manualList);
   console.log(shuffledArray);
   
-
   // Add shuffled classes to the <i> elements
   addShuffledClasses();
 
