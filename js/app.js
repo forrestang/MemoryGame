@@ -345,6 +345,9 @@ function resetBoard() {
 // Modal Function------------------------------------------------------------------------
 // Using SweetAlerts2 for Modal----------------------------------------------------------
 function displayModal() {
+  if (myScore < 1) {
+    myScore =0;
+  }
   const myText = `With ${moveCount} Moves and ${myScore-1} Stars.`;
 
   //Swal object to display modal info
