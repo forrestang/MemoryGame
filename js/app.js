@@ -12,7 +12,7 @@ let shuffledArray = shuffle(manualList);
 // console.log(shuffledArray);
 
 // ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck use.***********
-// shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
+shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
 //********************************************************************************* */
 
 // Add shuffled classes to the <i> elements
@@ -194,7 +194,7 @@ function incrementMoveCount() {
 // Modify the stars on the page ---------------------------------------------------------
 //---------------------------------------------------------------------------------------
 function removeStar() {
-  if (myScore > 0) {
+  if (myScore > 1) {
     myStars.children[myScore-1].children[0].className = 'far fa-star';    
   }
 }
@@ -231,7 +231,7 @@ function addShuffledClasses() {
 // Function to reduce score on an incorrrect guess---------------------------------------
 //---------------------------------------------------------------------------------------
 function keepingScore() { //Make sure lowest score is only as low as 0
-  if(myScore > 0) {
+  if(myScore > 1) {
     myScore--;
   }
 }
@@ -298,7 +298,7 @@ function resetBoard() {
   shuffledArray = shuffle(manualList);
 
   // ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck use.***********
-  // shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
+  shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
   //********************************************************************************* */
 
   // Add shuffled classes to the <i> elements
@@ -345,8 +345,8 @@ function resetBoard() {
 // Modal Function------------------------------------------------------------------------
 // Using SweetAlerts2 for Modal----------------------------------------------------------
 function displayModal() {
-  if (myScore < 1) {
-    myScore =1;
+  if (myScore < 2) {
+    myScore =2;
   }
   const myText = `With ${moveCount} Moves and ${myScore-1} Stars.`;
 
