@@ -353,7 +353,7 @@ function displayModal() {
   //Swal object to display modal info
   swal({
     type: 'success',
-    title: 'Congratulations! You Won!',
+    title: 'Congratz! You Won!',
     text: myText,
     backdrop: true,
     width: '70%',

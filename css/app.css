@@ -18,7 +18,6 @@ body {
 
 body {
   background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-  /* background: #ffffff url('../img/HazyBubble.jpg'); Background pattern from Subtle Patterns */
   font-family: 'Coda', cursive;
 }
 
@@ -32,15 +31,15 @@ body {
 h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  text-align: center;
 }
 
-/* ---------------------CSS FOR Cards------------------------------------*/
+/* ---------------------CSS FOR Cards(mobile first)------------------------------------*/
 .deck {
-  width: 660px;
-  min-height: 680px;
+  width: 315px;
+  min-height: 315px;
   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-  /* background: linear-gradient(160deg, #f18306 0%, #384ab3 100%); */
-  padding: 32px;
+  padding: 5px;
   border-radius: 7px;
   box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
   display: flex;
@@ -51,8 +50,8 @@ h1 {
 }
 
 .deck .card {   
-  height: 125px;
-  width: 125px;
+  height: 67px;
+  width: 67px;
   background: #2e3d49;
   font-size: 0;
   color: #ffffff;
@@ -75,37 +74,33 @@ h1 {
 }
 
 .deck .card.show {  /* SHOW class, symbol on card face when flipped, for non-matched single cards */
-  font-size: 66px;
+  font-size: 40px;
 }
 
 .deck .card.match { /* MATCH class, removes curser, shows symbol, applies color */
   cursor: default; /* nullifies color */
   background: #02ccba;  /* color for matched cards */
-  font-size: 66px;
+  font-size: 40px;
 }
 
 .deck .card.wrong { /* MATCH class, removes curser, shows symbol, applies color */
-  /* cursor: default; nullifies color */
+  cursor: default; /* nullifies color */
   background: #d43333;  /* color for matched cards */
-  font-size: 66px;
+  font-size: 40px;
 }
 
-/* ---------------------CSS FOR Score Panel, used Grid Layout--------------------*/
+/* ---------------------CSS FOR Score Panel,-------------------------------------*/
 .score-panel {
-  text-align: left;
-  /* width: 345px; */
-  width: 660px; /* changed this so header panel spans across */
+  width: 200px; /* changed this so header panel spans across */
   margin-bottom: 10px;
-  padding: 0 20px; /* changed this */
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 0 5px; /* changed this */
 }
 
 .score-panel .stars {
   margin: 0;
   padding: 0;
   display: inline-block;
-  margin: 0 5px 0 0;
+  margin: 0 0 0 0;
 }
 
 .score-panel .stars li {
@@ -114,7 +109,6 @@ h1 {
 }
 
 .score-panel .restart {
-  justify-self: end;
   cursor: pointer;
 }
 
@@ -132,4 +126,88 @@ h1 {
 
 .swal2-confirm:hover{
   background:#18776f;
+}
+
+/* -------------------------------Responsive CSS Below-----------------------------*/
+/* -------------------------------Responsive CSS Below-----------------------------*/
+/* On screens that are 370px or greater, change widh of deck -------------------*/
+@media screen and (min-width: 370px) {
+  .deck {
+    width: 370px;
+    min-height: 370px;
+  }
+  
+  .deck .card {   
+    height: 80px;
+    width: 80px;
+  }
+
+  .deck .card.show  {  /* SHOW class, symbol on card face when flipped, for non-matched single cards */
+    font-size: 50px;
+  }
+  
+  .deck .card.match { /* MATCH class, removes curser, shows symbol, applies color */
+    font-size: 50px;
+  }
+  
+  .deck .card.wrong { /* MATCH class, removes curser, shows symbol, applies color */
+    font-size: 50px;
+  }
+}
+
+/* On screens that are 500px or greater, change widh of deck -------------------*/
+@media screen and (min-width: 500px) {
+  .deck {
+    width: 500px;
+    min-height: 500px;
+    padding: 25px;
+  }
+  
+  .deck .card {   
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* On screens that are 670px or greater, change widh of deck -------------------*/
+@media screen and (min-width: 670px) {
+  .deck {
+    width: 660px;
+    min-height: 680px;
+    padding: 32px;
+  }
+  
+  .deck .card {   
+    height: 125px;
+    width: 125px;
+  }
+
+  .deck .card.show  {  /* SHOW class, symbol on card face when flipped, for non-matched single cards */
+    font-size: 66px;
+  }
+  
+  .deck .card.match { /* MATCH class, removes curser, shows symbol, applies color */
+    font-size: 66px;
+  }
+  
+  .deck .card.wrong { /* MATCH class, removes curser, shows symbol, applies color */
+    font-size: 66px;
+  }
+
+  /* ---------------------CSS FOR Score Panel, used Grid Layout------------*/
+  .score-panel {
+    width: 660px; /* changed this so header panel spans across */
+    padding: 0 20px; /* changed this */
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+
+  .score-panel .stars {
+    margin: 0 5px 0 0;
+  }
+
+  .score-panel .restart {
+    justify-self: end;
+  }
+  
 }
