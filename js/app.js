@@ -348,15 +348,30 @@ function displayModal() {
   if (myScore < 2) {
     myScore =2;
   }
-  const myText = `With ${moveCount} Moves and ${myScore-1} Stars.`;
+
+  // get Hours,Min and seconds to add to modal
+  const myTime = document.querySelector('.myTimer').textContent;
+  const hours  = myTime.substring(0, 1);
+  let min  = myTime.substring(4, 6);
+  let sec  = myTime.substring(9, 11);
+
+  if (min[0] === '0') { //Nicer formatting to display only 1 digit in modal
+    min = min.substring(1,2);
+  }
+  if (sec[0] === '0') { //Nicer formatting to display only 1 digit in modal
+    sec = sec.substring(1,2);
+  }
+
+  //Create formatting for modal
+  const myText = `With ${myScore-1} STARS and ${moveCount} MOVES. <br>
+  This game took you ${hours} hours,<br> ${min} minutes and ${sec} seconds.`;
 
   //Swal object to display modal info
   swal({
     type: 'success',
     title: 'Congratz! You Won!',
-    text: myText,
+    html: myText,
     backdrop: true,
-    width: '70%',
     confirmButtonText: 'Play Again',
     buttonsStyling: false,
     showCloseButton: true,
@@ -379,5 +394,3 @@ function animateOnClick(myEvent) {    //Add a y-Flip to each card press
     myEvent.classList.remove("flipInY");
   }, 500);
 }
-
-//Testing git hub
