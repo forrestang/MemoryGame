@@ -133,11 +133,9 @@ function compareCards() {
 // If cards match remove show/open class, add match class--------------------------------
 //---------------------------------------------------------------------------------------
 function cardsMatchTrue() {
-  clickedCards[0].classList.remove("show"); 
-  clickedCards[0].classList.remove("open"); 
+  clickedCards[0].classList.remove("show", "open"); 
   clickedCards[0].classList.add("match");
-  clickedCards[1].classList.remove("show"); 
-  clickedCards[1].classList.remove("open"); 
+  clickedCards[1].classList.remove("show", "open"); 
   clickedCards[1].classList.add("match");
 
   setTimeout( () => {
@@ -162,16 +160,8 @@ function cardsMatchFalse() {
   }, 500);
 
   setTimeout( () => {   //Add a delay so the user can see incorrect card
-    clickedCards[0].classList.remove("show"); 
-    clickedCards[0].classList.remove("open"); 
-    clickedCards[0].classList.remove("wrong");  //Remove incorrect guess class
-
-    clickedCards[1].classList.remove("show"); 
-    clickedCards[1].classList.remove("open"); 
-    clickedCards[1].classList.remove("wrong");  //Remove incorrect guess class  
-
-    clickedCards[0].classList.remove("headShake");
-    clickedCards[1].classList.remove("headShake");  
+    clickedCards[0].classList.remove("show","open", "wrong", "headShake"); 
+    clickedCards[1].classList.remove("show","open", "wrong", "headShake"); 
 
     clickedCards = [];    // Clear array as we only need to work with two cards at a time
     incrementMoveCount(); //Add a move each time cards are NOT matched
@@ -213,8 +203,7 @@ function isGameOver() {
 // Function that returns a double sized array of whatever is passed into it--------------
 //---------------------------------------------------------------------------------------
 function doubleArray(myArr) {
-  tempArray = myArr;
-  myArr = myArr.concat(tempArray);
+  myArr = [...myArr, ...myArr];   // myArr = myArr.concat(myArr); //old way
   return myArr;
 }
 
