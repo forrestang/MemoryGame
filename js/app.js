@@ -11,8 +11,8 @@ const manualList = doubleArray(manualListTemp);
 let shuffledArray = shuffle(manualList);
 // console.log(shuffledArray);
 
-// ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck use.***********
-shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
+// ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck.***********
+// shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
 //********************************************************************************* */
 
 // Add shuffled classes to the <i> elements
@@ -64,7 +64,7 @@ myReset.addEventListener('click', function()  {
 // Shuffle function from http://stackoverflow.com/a/2450976 -----------------------------
 //---------------------------------------------------------------------------------------
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  let currentIndex = array.length, temporaryValue, randomIndex;
 
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -79,7 +79,8 @@ function shuffle(array) {
 // If <li> is clicked, call toggle classe function---------------------------------------
 //---------------------------------------------------------------------------------------
 function applyListener(event) {  
-  
+  disableDeck();        //Diable the deck immediately on a click until setTimeout() is complete.
+
   const myClickedCard = event.target;
   if (myClickedCard.nodeName==="LI") {
     toggleCardClass(myClickedCard);
@@ -158,7 +159,7 @@ function cardsMatchFalse() {
   setTimeout( () => {   //Add a delay so the user can see incorrect card
     clickedCards[0].classList.add("headShake");
     clickedCards[1].classList.add("headShake");  
-  }, 510);
+  }, 500);
 
   setTimeout( () => {   //Add a delay so the user can see incorrect card
     clickedCards[0].classList.remove("show"); 
@@ -172,11 +173,11 @@ function cardsMatchFalse() {
     clickedCards[0].classList.remove("headShake");
     clickedCards[1].classList.remove("headShake");  
 
-    clickedCards = []; // Clear array as we only need to work with two cards at a time
+    clickedCards = [];    // Clear array as we only need to work with two cards at a time
     incrementMoveCount(); //Add a move each time cards are NOT matched
     keepingScore();       //function to reduce score on incorrect guess
-    removeStar();         //function to remove stars from score panel    
-  }, 1000);
+    removeStar();         //function to remove stars from score panel 
+  }, 850);
 }
 
 // Increment move Counter----------------------------------------------------------------
@@ -204,7 +205,6 @@ function removeStar() {
 function isGameOver() {
   matchCount++;
   if(matchCount === 8) {
-    // console.log(`${matchCount} moves and Game is Over`);
     stopTimer();  //Stop timer on end game condition
     displayModal();
   }
@@ -297,8 +297,8 @@ function resetBoard() {
   // Reshuffle Array
   shuffledArray = shuffle(manualList);
 
-  // ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck use.***********
-  shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
+  // ************Temporary simple solve deck for testing. Comment OUT to use shuffled deck.***********
+  // shuffledArray = ["fab fa-react","fab fa-react", "fab fa-vuejs","fab fa-vuejs", "fab fa-python","fab fa-python", "fab fa-php","fab fa-php","fab fa-node-js","fab fa-node-js","fab fa-laravel","fab fa-laravel","fab fa-r-project","fab fa-r-project","fab fa-npm","fab fa-npm"]; 
   //********************************************************************************* */
 
   // Add shuffled classes to the <i> elements
@@ -392,5 +392,20 @@ function animateOnClick(myEvent) {    //Add a y-Flip to each card press
 
   setTimeout( () => {   //Remove class after animation
     myEvent.classList.remove("flipInY");
+
+    setTimeout( () => {   //Remove class after animation
+      enableDeck(); //Extra delay to ensure animation is complete, 
+    }, 400); //500 works
+
   }, 500);
+}
+
+// Diable/enable Cursor Function------------------------------------------------------------------------
+// these functions when called will disable/enable the cursor, used to pause interaction on animation---
+function disableDeck() {
+  myDeck.setAttribute("style", "pointer-events: none;");
+}
+
+function enableDeck() {
+  myDeck.removeAttribute("style", "pointer-events: none;");
 }
