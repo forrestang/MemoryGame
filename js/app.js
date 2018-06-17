@@ -78,20 +78,20 @@ function shuffle(array) {
 
 // If <li> is clicked, call toggle classe function---------------------------------------
 //---------------------------------------------------------------------------------------
-function applyListener(event) {  
-  disableDeck();        //Diable the deck immediately on a click until setTimeout() is complete.
+function applyListener(event) { 
 
-  const myClickedCard = event.target;
-  if (myClickedCard.nodeName==="LI") {
-    toggleCardClass(myClickedCard);
+    const myClickedCard = event.target;
+    if (myClickedCard.nodeName==="LI") {
+      toggleCardClass(myClickedCard);
+      disableDeck();        //Diable the deck immediately on a click until setTimeout() is complete.
 
-    animateOnClick(myClickedCard); //********************Animation Added */
+      animateOnClick(myClickedCard); //********************Animation Added */
 
-    if (!firstMove) {   // Timer will only be started one time
-      startTimer();     // start the timer on first click on board
-      firstMove = true; // This will never be triggered again    
+      if (!firstMove) {   // Timer will only be started one time
+        startTimer();     // start the timer on first click on board
+        firstMove = true; // This will never be triggered again    
+      }
     }
-  }
 }
 
 // Toggle the show/Open classes which turn card blue and show symbol---------------------
